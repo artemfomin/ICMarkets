@@ -6,4 +6,8 @@
     <RootNamespace>ICMarkets.CodingChallenge.Presentation</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ICMarkets.CodingChallenge.Devices\ICMarkets.CodingChallenge.Devices.csproj" />
+  </ItemGroup>
+
 </Project>

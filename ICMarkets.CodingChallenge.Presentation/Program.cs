@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ICMarkets.CodingChallenge.Devices;
+using ICMarkets.CodingChallenge.Devices.Connections;
+using ICMarkets.CodingChallenge.Devices.ConsoleInterface;
+using System;
 
 namespace ICMarkets.CodingChallenge.Presentation
 {
@@ -6,7 +9,18 @@ namespace ICMarkets.CodingChallenge.Presentation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (var cam = new Camera(ConnectionTypes.HTTP, new object(), "Backyard cam 1"))
+            {
+                cam.Connect();
+                string input = Console.ReadLine();
+                while(!input.Equals("quit"))
+                {
+                    cam.ExecuteCommand(input);
+                    input = Console.ReadLine();
+                }
+            }
+
+            Console.ReadKey();
         }
     }
 }
