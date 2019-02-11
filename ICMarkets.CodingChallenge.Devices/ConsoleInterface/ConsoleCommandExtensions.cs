@@ -81,6 +81,16 @@ namespace ICMarkets.CodingChallenge.Devices.ConsoleInterface
             method.Invoke(source, convertedArgs.ToArray());
         }
 
+        public static void RunCli<T>(this T source) where T : CoreDevice
+        {
+            string input = Console.ReadLine();
+            while (!input.Equals("quit"))
+            {
+                source.ExecuteCommand(input);
+                input = Console.ReadLine();
+            }
+        }
+
         // Just to avoid code duplicates
         private static void WriteError(string text)
         {

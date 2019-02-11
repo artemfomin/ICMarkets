@@ -12,12 +12,7 @@ namespace ICMarkets.CodingChallenge.Presentation
             using (var cam = new Camera(ConnectionTypes.HTTP, new object(), "Backyard cam 1"))
             {
                 cam.Connect();
-                string input = Console.ReadLine();
-                while(!input.Equals("quit"))
-                {
-                    cam.ExecuteCommand(input);
-                    input = Console.ReadLine();
-                }
+                cam.RunCli();
             }
 
             Console.ReadKey();
